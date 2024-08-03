@@ -2,6 +2,7 @@
 This program, called process-run.py, allows you to see how the state of a
 process state changes as it runs on a CPU. As described in the chapter, 
 processes can be in a few different states:
+用于查看进程在CPU上运行时的状态变化
 
   RUNNING - the process is using the CPU right now
   READY   - the process could be using the CPU right now
@@ -9,6 +10,7 @@ processes can be in a few different states:
   WAITING - the process is waiting on I/O
             (e.g., it issued a request to a disk)
   DONE    - the process is finished executing
+分为：运行、等待CPU、IO阻塞、完毕四种状态
 
 In this homework, we'll see how these process states change as a program
 runs, and thus learn a little bit better how these things work.
@@ -39,9 +41,11 @@ Options:
   -S PROCESS_SWITCH_BEHAVIOR, --switch=PROCESS_SWITCH_BEHAVIOR
                         when to switch between processes: SWITCH_ON_IO,
                         SWITCH_ON_END
+  确定进程切换时机，IO事件切换还是进程DONE后切换
   -I IO_DONE_BEHAVIOR, --iodone=IO_DONE_BEHAVIOR
                         type of behavior when IO ends: IO_RUN_LATER,
                         IO_RUN_IMMEDIATE
+  决定是否连续执行IO操作
   -c                    compute answers for me
   -p, --printstats      print statistics at end; only useful with -c flag
                         (otherwise stats are not printed)
